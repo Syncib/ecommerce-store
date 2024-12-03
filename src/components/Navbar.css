@@ -1,0 +1,95 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  height: 4rem;
+}
+.navbrand {
+  text-wrap: nowrap;
+}
+.navitems {
+  display: none;
+}
+.navitems a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.navitems a:hover {
+  border-color: black;
+}
+.misc {
+  display: flex;
+  gap: 12px;
+}
+.misc .icons {
+  display: flex;
+  gap: 12px;
+}
+.menuitems.closed {
+  display: none;
+}
+.menuitems {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  backdrop-filter: blur(500px);
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  z-index: 4;
+}
+.menuitems a {
+  text-decoration: none;
+  font-weight: bold;
+  color: inherit;
+  border-bottom: 1px solid transparent;
+  transition: border-color 0.2s ease;
+}
+.menuitems a:hover {
+  border-color: black;
+}
+.menuitems .close-btn {
+  position: fixed;
+  right: 20px;
+  top: 20px;
+  cursor: pointer;
+}
+
+.hamburger {
+  cursor: pointer;
+}
+.navbar {
+  padding: 0 1rem;
+}
+
+.logbutton {
+  background-color: black;
+  border: none;
+  width: 150px;
+  height: 40px;
+  color: white;
+}
+
+.icons{
+  display: flex;
+  align-items: center;
+}
+@media screen and (min-width: 600px) {
+  .navitems {
+    display: flex;
+    gap: 12px;
+  }
+  .hamburger {
+    display: none;
+  }
+  .navbar {
+    padding: 0 2rem;
+  }
+}

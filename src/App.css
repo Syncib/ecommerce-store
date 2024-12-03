@@ -1,38 +1,156 @@
-.App {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: inherit;
+}
+
+body {
+  background-color: lavender;
+}
+.main-app {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+}
+.norcont {
+  min-height: 60vh;
+}
+.swiper {
+  width: 100%;
+  height: 90vh;
+}
+.swiper-slide img {
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+.about-us {
+  background-color: white;
+}
+.about-us .text {
+  text-align: center;
+  line-height: 5rem;
+}
+.about-us .text h1 {
+  font-size: 5vh;
+}
+.about-us .text h5 {
+  color: silver;
+  font-size: large;
+}
+.showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: minmax(200px, 650px);
+  max-width: 1200px;
+  margin: auto;
+  gap: 1rem;
+}
+.showcase-grid div {
+  overflow: hidden;
+  width: 100%;
+}
+.showcase-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sigcol {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.sigcol h1 {
+  font-size: 6vh;
+  font-weight: 400;
+  text-wrap: pretty;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.sigcol p {
+  font-size: larger;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.sigcol * {
+  margin-bottom: 2rem;
+}
+.shopbutton {
+  background-color: rgb(78, 84, 156);
+  color: white;
+  font-weight: bolder;
+  width: 30%;
+  height: 50px;
+  border: none;
+  font-size: medium;
+}
+.sigcol .girlpur {
   display: flex;
-  flex-direction: column;
+}
+.gift {
+  margin-top: 2rem;
+  display: block;
+}
+.formarea,
+.formarealog {
+  min-height: inherit;
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  gap: 2rem;
+  padding: 2rem 0;
+}
+.formarealog {
+  flex-wrap: wrap;
+}
+.myform {
+  width: 50%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.myform input {
+  border: none;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.regbutton,
+.loginbutton {
+  padding: 1rem;
+  border: none;
+  background-color: black;
   color: white;
+  font-size: larger;
 }
 
-.App-link {
-  color: #61dafb;
+.newcus {
+  max-width: 50%;
+  line-height: 3rem;
+}
+.regbutton {
+  min-width: 40%;
+}
+.regbutton a,
+.loginbutton a {
+  text-decoration: none;
+}
+.loginbutton {
+  border: 1px solid black;
+  color: black;
+  background-color: transparent;
+  margin-top: 1rem;
+}
+.collection-grid{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media screen and (max-width: 700px) {
+  .swiper {
+    height: 30vh;
   }
-  to {
-    transform: rotate(360deg);
+  .showcase-grid {
+    grid-template-columns: 1fr;
+  }
+  .regbutton {
+    min-width: 100%;
   }
 }
