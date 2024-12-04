@@ -4,6 +4,7 @@ import Layout from "./Layout";
 import Register from "./pages/Register";
 import "./App.css";
 import Login from "./pages/Login";
+import Collection from "./pages/Collection";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/collections" element={<Collection />} />
         </Route>
       </Routes>
     </div>

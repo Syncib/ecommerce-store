@@ -138,9 +138,23 @@ body {
   background-color: transparent;
   margin-top: 1rem;
 }
-.collection-grid{
+.collection-area {
   display: grid;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: 1fr 2fr;
+  max-width: 1600px;
+  gap: 1rem;
+  margin: 1rem auto;
+  padding: 0 1rem;
+}
+.filter-panel {
+  min-width: 200px;
+  background-color: white;
+}
+.collection-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 5px;
+  max-width: 900px;
 }
 
 @media screen and (max-width: 700px) {
@@ -153,4 +167,16 @@ body {
   .regbutton {
     min-width: 100%;
   }
+  .collection-area {
+    grid-template-columns: 1fr;
+  }
+  .collection-grid {
+    grid-template-columns: 1fr;
+  }
 }
+@media (max-width: 1000px) and (min-width: 700px) {
+  .collection-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+

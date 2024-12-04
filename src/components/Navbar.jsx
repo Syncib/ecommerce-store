@@ -12,9 +12,9 @@ const Navbar = () => {
           <Link to="/" className="navitem">
             Home
           </Link>
-          <a href="#" className="navitem">
+          <Link to="/collections" className="navitem">
             Collections
-          </a>
+          </Link>
           <a href="#" className="navitem">
             About
           </a>
@@ -24,9 +24,7 @@ const Navbar = () => {
         </div>
         <div className="misc">
           <div className="icons">
-            <div>
-              Welcome User
-            </div>
+            <div className="welcuser">Welcome User</div>
             <FaSearch />
             <Link to={"/login"}>
               <FaUser />
@@ -55,9 +53,9 @@ const Navbar = () => {
         <Link to="/" className="navitem">
           Home
         </Link>
-        <a href="#" className="navitem">
+        <Link to="/collections" className="navitem">
           Collections
-        </a>
+        </Link>
         <a href="#" className="navitem">
           About
         </a>
