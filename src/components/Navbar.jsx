@@ -1,13 +1,26 @@
 import React, { useState } from "react";
-import { FaShoppingCart, FaSearch, FaUser, FaBars } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaSearch,
+  FaUser,
+  FaBars,
+} from "react-icons/fa";
+import { FaGear } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { useUserContext } from "../hooks/useUserContext";
+import { useLogout } from "../hooks/useLogout";
 import "./Navbar.css";
 const Navbar = () => {
+  const { user } = useUserContext();
   const [isOpen, setIsOpen] = useState(false);
+  const { logout } = useLogout();
+
   return (
     <>
       <nav className="navbar">
-        <h1 className="navbrand">Saqib's Store</h1>
+        <Link to="/">
+          <h1 className="navbrand">Saqib's Store</h1>
+        </Link>
         <div className="navitems">
           <Link to="/" className="navitem">
             Home
@@ -24,12 +37,22 @@ const Navbar = () => {
         </div>
         <div className="misc">
           <div className="icons">
-            <div className="welcuser">Welcome User</div>
+            <div className="welcuser">
+              Welcome {user ? user.existingUser.username : "guest"}
+            </div>
             <FaSearch />
-            <Link to={"/login"}>
+            <FaShoppingCart />
+            <Link to={user?"/account":"/login"}>
               <FaUser />
             </Link>
-            <FaShoppingCart />
+            <div
+              role="button"
+              onClick={() => {
+                logout();
+              }}
+            >
+              <FaGear />
+            </div>
           </div>
           <div
             className="hamburger"

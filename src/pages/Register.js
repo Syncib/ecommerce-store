@@ -1,12 +1,15 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { useSignup } from "../hooks/useSignup";
 
 const Register = () => {
   const [username, setUserName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const handleSubmit = (e) => {
+  const { signup, error, isLoading } = useSignup();
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    await signup(username, email, password);
   };
   return (
     <div className="formarea">
@@ -33,12 +36,13 @@ const Register = () => {
           onChange={(e) => setPassword(e.target.value)}
           value={password}
         />
-        <button type="submit" className="regbutton">
+        <button type="submit" className="regbutton" disabled={isLoading}>
           Register
         </button>
         <button className="loginbutton">
           <Link to="/login">Login</Link>
         </button>
+        {error && <div>Failed to Register</div>}
       </form>
     </div>
   );

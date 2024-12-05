@@ -7,6 +7,9 @@
   min-height: 250px;
 }
 .collection-card img {
+  height: 300px;
+  object-fit: cover;
+  object-position: center;
   width: 100%;
 }
 
