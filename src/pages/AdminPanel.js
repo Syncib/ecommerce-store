@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import AddItems from "./AddItems";
 import CollectionItem from "../components/CollectionItem";
-import skeimg from "../assets/images/skeleton/image-1@2x.jpg"
+import skeimg from "../assets/images/skeleton/image-1@2x.jpg";
+
 const AdminPanel = () => {
   const [action, setAction] = useState("additems");
   const [item, setItem] = useState({
@@ -23,6 +24,19 @@ const AdminPanel = () => {
       setPreview(skeimg); // Clear preview if `item.image` is not valid
     }
   }, [item.image]);
+
+  const resetItem = () => {
+    setItem({
+      name: "",
+      price: 0,
+      description: "",
+      image: "",
+      category: "",
+      stock: 0,
+    });
+    setPreview(skeimg); // Reset the preview
+  };
+
   return (
     <div className="admin-panel">
       <div className="admin-actions">
@@ -40,7 +54,7 @@ const AdminPanel = () => {
           <div className="additempnl">
             <div>
               <h1>Add New Item</h1>
-              <AddItems item={item} setItem={setItem} />
+              <AddItems item={item} setItem={setItem} resetItem={resetItem} />
             </div>
             <div>
               <h1>Preview Item</h1>

@@ -8,8 +8,11 @@
 body {
   background-color: lavender;
 }
-a{
+a {
   text-decoration: none;
+}
+button {
+  cursor: pointer;
 }
 .main-app {
   position: relative;
@@ -197,19 +200,37 @@ a{
   display: flex;
   justify-content: space-around;
 }
-.addform label{
+.addform label {
   font-weight: bolder;
 }
-.addform input{
+.addform input {
   padding: 0.5rem;
 }
-.addform button{
+.addform button {
   border: none;
   padding: 9px;
   font-weight: bolder;
   border-radius: 5px;
   background-color: rgb(0, 0, 0);
   color: white;
+}
+
+.buypage {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  width: 50%;
+  margin: 1rem auto;
+  align-items: center;
+}
+
+.buyframe img {
+  max-height: 40vh;
+}
+.buydetails {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 @media screen and (max-width: 700px) {
   .swiper {

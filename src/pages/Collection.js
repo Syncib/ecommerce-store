@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useEffect } from "react";
 import CollectionItem from "../components/CollectionItem";
+import { useCollectionContext } from "../hooks/useCollectionsContext";
 const Collection = () => {
- 
+  const { collections, dispatch } = useCollectionContext();
+  useEffect(() => {
+    const getItems = async () => {
+      const response = await fetch("http://localhost:4000/api/products/all");
+      if (response.ok) {
+        const data = await response.json();
+        dispatch({ type: "SET_COLLECTIONS", payload: data });
+      }
+    };
+    getItems();
+  }, [dispatch]);
   return (
     <div className="collection-area">
       <div className="filter-panel">filter</div>
       <div className="collection-grid">
-        {/* {items.map((item) => {
+        {collections?.map((item) => {
           return (
             <CollectionItem
-              key={item.id}
+              key={item._id}
               image={item.image}
               title={item.name}
               price={item.price}
+              itemid = {item._id}
             />
           );
-        })} */}
+        })}
       </div>
     </div>
   );

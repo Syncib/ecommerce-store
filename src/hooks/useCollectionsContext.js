@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { CollectionContext } from "../context/CollectionsContexts";
+import { CollectionsContext } from "../context/CollectionsContext";
 export const useCollectionContext = () => {
-  const context = useContext(CollectionContext);
+  const context = useContext(CollectionsContext);
   if (!context) {
     throw Error(
       "useCollectionContext must be used within a CollectionProvider"

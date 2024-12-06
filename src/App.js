@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Collection from "./pages/Collection";
 import AdminPanel from "./pages/AdminPanel";
 import "./App.css";
+import BuyPage from "./pages/BuyPage";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/login" element={<Login />} />
           <Route path="/collections" element={<Collection />} />
+          <Route path="/buy/:id" element={<BuyPage />} />
           <Route path="/dashboard" element={<AdminPanel />} />
         </Route>
       </Routes>
