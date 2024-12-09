@@ -5,7 +5,7 @@ const Collection = () => {
   const { collections, dispatch } = useCollectionContext();
   useEffect(() => {
     const getItems = async () => {
-      const response = await fetch("http://localhost:4000/api/products/all");
+      const response = await fetch("https://ecommerce-server-ten-phi.vercel.app/api/products/all");
       if (response.ok) {
         const data = await response.json();
         dispatch({ type: "SET_COLLECTIONS", payload: data });

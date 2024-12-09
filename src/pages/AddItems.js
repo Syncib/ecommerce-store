@@ -14,13 +14,16 @@ const AddItems = ({ item, setItem, resetItem }) => {
     data.set("category", item.category);
     data.set("stock", item.stock);
 
-    const response = await fetch("http://localhost:4000/api/admin/add", {
-      method: "POST",
-      body: data,
-      headers: {
-        Authorization: "Bearer " + user.token,
-      },
-    });
+    const response = await fetch(
+      "https://ecommerce-server-ten-phi.vercel.app/api/admin/add",
+      {
+        method: "POST",
+        body: data,
+        headers: {
+          Authorization: "Bearer " + user.token,
+        },
+      }
+    );
 
     if (response.ok) {
       resetItem(); // Reset item state and preview in AdminPanel

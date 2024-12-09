@@ -12,7 +12,7 @@ const AddCoupon = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:4000/api/coupons", {
+      const response = await fetch("https://ecommerce-server-ten-phi.vercel.app/api/coupons", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

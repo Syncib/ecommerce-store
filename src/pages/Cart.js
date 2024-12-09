@@ -17,7 +17,7 @@ const Cart = () => {
       if (!user) return; // Prevent fetch if user is not logged in
       try {
         const response = await fetch(
-          "http://localhost:4000/api/products/coupons",
+          "https://ecommerce-server-ten-phi.vercel.app/api/products/coupons",
           {
             headers: {
               Authorization: `Bearer ${user.token}`,

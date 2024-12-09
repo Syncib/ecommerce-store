@@ -1,14 +1,14 @@
 import { Navigate, Route, Routes } from "react-router-dom";
+import { useUserContext } from "./hooks/useUserContext";
 import Home from "./pages/Home";
 import Layout from "./Layout";
 import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Collection from "./pages/Collection";
 import AdminPanel from "./pages/AdminPanel";
-import "./App.css";
 import BuyPage from "./pages/BuyPage";
 import Cart from "./pages/Cart";
-import { useUserContext } from "./hooks/useUserContext";
+import "./App.css";
 
 function App() {
   const { user } = useUserContext();

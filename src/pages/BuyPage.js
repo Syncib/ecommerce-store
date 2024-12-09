@@ -7,7 +7,9 @@ const BuyPage = () => {
   const navigate = useNavigate();
   useEffect(() => {
     const displayItem = async () => {
-      const response = await fetch(`http://localhost:4000/api/products/${id}`);
+      const response = await fetch(
+        `https://ecommerce-server-ten-phi.vercel.app/api/products/${id}`
+      );
       const data = await response.json();
       setProduct(data);
     };
