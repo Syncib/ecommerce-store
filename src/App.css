@@ -424,33 +424,32 @@ button {
   font-family: Arial, sans-serif;
 }
 
-h1 {
+.add-coupon h1 {
   margin-bottom: 20px;
 }
 
-.add-coupon-form {
+.add-coupon  .add-coupon-form {
   max-width: 400px;
   margin: 0 auto;
 }
 
-.form-group {
+.add-coupon .form-group {
   margin-bottom: 15px;
 }
 
-label {
+.add-coupon  label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-input {
+.add-coupon  input {
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
-button {
+.add-coupon  button {
   padding: 10px 20px;
   background-color: #28a745;
   color: white;
@@ -459,7 +458,7 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.add-coupon  button:hover {
   background-color: #218838;
 }
 
@@ -471,6 +470,23 @@ button:hover {
 .error-message {
   color: #dc3545;
   margin-bottom: 20px;
+}
+
+.filter-panel {
+  margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.filter-panel label {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.filter-panel select {
+  padding: 5px 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 @media screen and (max-width: 700px) {
