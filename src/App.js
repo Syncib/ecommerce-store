@@ -30,7 +30,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              user?.existingUser?.role === "admin" ? (
+              user?.role === "admin" ? (
                 <AdminPanel />
               ) : (
                 <Navigate to={"/"} />

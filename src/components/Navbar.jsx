@@ -33,7 +33,7 @@ const Navbar = () => {
         <div className="misc">
           <div className="icons">
             <div className="welcuser">
-              Welcome {user ? user.existingUser.username : "guest"}
+              Welcome {user ? user.username : "guest"}
             </div>
             <FaSearch />
             <Link to={"/cart"}>
