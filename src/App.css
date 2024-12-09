@@ -398,6 +398,49 @@ button {
   color: #2a9d8f;
   margin-top: 1rem;
 }
+
+
+.admin-orders {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.admin-orders h1 {
+  margin-bottom: 20px;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.orders-table th,
+.orders-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.orders-table th {
+  background-color: #007bff;
+  color: white;
+}
+
+.orders-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.orders-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.orders-table td ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+
+
 @media screen and (max-width: 700px) {
   .swiper {
     height: 30vh;

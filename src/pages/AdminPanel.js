@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import AddItems from "./AddItems";
 import CollectionItem from "../components/CollectionItem";
 import skeimg from "../assets/images/skeleton/image-1@2x.jpg";
+import AdminOrders from "./AdminOrders";
 
 const AdminPanel = () => {
   const [action, setAction] = useState("additems");
@@ -44,7 +45,7 @@ const AdminPanel = () => {
         <div className="admin-buttons">
           <button onClick={() => setAction("additems")}>Add New Item</button>
           <button>Add New Coupon</button>
-          <button>View Orders</button>
+          <button onClick={() => setAction("vieworders")}>View Orders</button>
           <button>View Coupons</button>
           <button>Modify Stock</button>
         </div>
@@ -66,6 +67,7 @@ const AdminPanel = () => {
             </div>
           </div>
         )}
+        {action === "vieworders" && <AdminOrders />}
       </div>
     </div>
   );
