@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 const BuyPage = () => {
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const navigate = useNavigate();
   useEffect(() => {
     const displayItem = async () => {
       const response = await fetch(`http://localhost:4000/api/products/${id}`);
@@ -11,7 +12,7 @@ const BuyPage = () => {
       setProduct(data);
     };
     displayItem();
-  }, []);
+  }, [id]);
 
   return (
     <div className="buypage">
@@ -23,7 +24,14 @@ const BuyPage = () => {
         <h3>{product.description}</h3>
         <h4>{product.category}</h4>
         <h5>Item Left: {product.stock}</h5>
-        <button className="regbutton">Buy</button>
+        <button
+          className="regbutton"
+          onClick={() => {
+            navigate("/collections");
+          }}
+        >
+          Go Back
+        </button>
       </div>
     </div>
   );

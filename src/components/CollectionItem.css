@@ -20,8 +20,9 @@
 }
 .actions {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap:5px
 }
 .actions button {
   border: none;
@@ -30,4 +31,5 @@
   border-radius: 5px;
   background-color: rgb(0, 0, 0);
   color: white;
+  text-wrap: nowrap;
 }

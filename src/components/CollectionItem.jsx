@@ -1,20 +1,23 @@
-import React from "react";
 import { useNavigate } from "react-router-dom";
-import "./CollectionItem.css";
+import { useCollectionContext } from "../hooks/useCollectionsContext";
+import "./CollectionItem.css"
 const CollectionItem = ({ image, title, price, itemid }) => {
+  const { dispatch } = useCollectionContext();
   const navigate = useNavigate();
+
+  const handleAddToCart = () => {
+    const item = { image, title, price, itemid };
+    dispatch({ type: "ADD_TO_CART", payload: item });
+  };
+
   return (
     <div className="collection-card">
-      <img src={image} alt="image" />
+      <img src={image} alt="item" />
       <p className="title">{title}</p>
+      <p className="price">${price}</p>
       <div className="actions">
-        <p className="price">${price}</p>
-        <button
-          className="cart-button"
-          onClick={() => navigate(`/buy/${itemid}`)}
-        >
-          Add to Cart
-        </button>
+        <button onClick={() => navigate(`/buy/${itemid}`)}>View Details</button>
+        <button onClick={handleAddToCart}>Add to Cart</button>
       </div>
     </div>
   );

@@ -1,8 +1,9 @@
 import React, { useRef } from "react";
+import { useUserContext } from "../hooks/useUserContext";
 
 const AddItems = ({ item, setItem, resetItem }) => {
   const fileInputRef = useRef(null);
-
+  const { user } = useUserContext();
   const addNewItem = async (e) => {
     e.preventDefault();
     const data = new FormData();
@@ -16,6 +17,9 @@ const AddItems = ({ item, setItem, resetItem }) => {
     const response = await fetch("http://localhost:4000/api/admin/add", {
       method: "POST",
       body: data,
+      headers: {
+        Authorization: "Bearer " + user.token,
+      },
     });
 
     if (response.ok) {
@@ -62,7 +66,9 @@ const AddItems = ({ item, setItem, resetItem }) => {
       <input
         type="number"
         placeholder="Enter item stock"
-        onChange={(e) => setItem({ ...item, stock: parseInt(e.target.value) || 0 })}
+        onChange={(e) =>
+          setItem({ ...item, stock: parseInt(e.target.value) || 0 })
+        }
         value={item.stock}
       />
       <label>Item Image</label>

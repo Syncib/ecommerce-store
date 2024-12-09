@@ -1,11 +1,6 @@
 import React, { useState } from "react";
-import {
-  FaShoppingCart,
-  FaSearch,
-  FaUser,
-  FaBars,
-} from "react-icons/fa";
-import { FaGear } from "react-icons/fa6";
+import { FaShoppingCart, FaSearch, FaUser, FaBars } from "react-icons/fa";
+import { TbLogout } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../hooks/useUserContext";
 import { useLogout } from "../hooks/useLogout";
@@ -41,18 +36,22 @@ const Navbar = () => {
               Welcome {user ? user.existingUser.username : "guest"}
             </div>
             <FaSearch />
-            <FaShoppingCart />
-            <Link to={user?"/account":"/login"}>
+            <Link to={"/cart"}>
+              <FaShoppingCart />
+            </Link>
+            <Link to={user ? "/account" : "/login"}>
               <FaUser />
             </Link>
-            <div
-              role="button"
-              onClick={() => {
-                logout();
-              }}
-            >
-              <FaGear />
-            </div>
+            {user && (
+              <div
+                role="button"
+                onClick={() => {
+                  logout();
+                }}
+              >
+                <TbLogout />
+              </div>
+            )}
           </div>
           <div
             className="hamburger"
@@ -85,7 +84,9 @@ const Navbar = () => {
         <a href="#" className="navitem">
           Contact
         </a>
-        <button
+        {!user && (
+          <>
+          <button
           className="logbutton"
           onClick={() => {
             setIsOpen(false);
@@ -101,6 +102,9 @@ const Navbar = () => {
         >
           <Link to="/login">Login</Link>
         </button>
+          </>
+        )}
+        
       </div>
     </>
   );

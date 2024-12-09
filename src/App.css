@@ -4,7 +4,6 @@
   box-sizing: border-box;
   color: inherit;
 }
-
 body {
   background-color: lavender;
 }
@@ -117,7 +116,6 @@ button {
   padding: 1rem;
   margin: 1rem 0;
 }
-
 .regbutton,
 .loginbutton {
   padding: 1rem;
@@ -126,7 +124,6 @@ button {
   color: white;
   font-size: larger;
 }
-
 .newcus {
   max-width: 50%;
   line-height: 3rem;
@@ -176,7 +173,6 @@ button {
   overflow: hidden;
   padding: 2rem;
 }
-
 .admin-buttons {
   display: flex;
   flex-direction: column;
@@ -214,23 +210,193 @@ button {
   background-color: rgb(0, 0, 0);
   color: white;
 }
-
 .buypage {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  width: 50%;
+  max-width: 50%;
   margin: 1rem auto;
   align-items: center;
 }
-
 .buyframe img {
-  max-height: 40vh;
+  width: 100%;
 }
 .buydetails {
   display: flex;
   flex-direction: column;
   gap: 1rem;
+}
+/* Cart Component Styles */
+.cart-page {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.cart-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.cart-items {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+.cart-item img {
+  max-width: 100px;
+  max-height: 100px;
+  border-radius: 5px;
+  object-fit: cover;
+}
+.cart-item div {
+  flex: 1;
+  margin-left: 1rem;
+}
+.cart-item p {
+  margin: 0.2rem 0;
+  font-size: 1rem;
+  color: #555;
+}
+.cart-item button {
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.cart-item button:hover {
+  background-color: #d62839;
+}
+.order-button {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  background-color: #2a9d8f;
+  color: #fff;
+  font-size: 1.2rem;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+.order-button:hover {
+  background-color: #21867a;
+}
+.cart-page p {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #777;
+}
+.cart-page h2 {
+  text-align: right;
+  font-size: 1.5rem;
+  color: #333;
+  margin-top: 1rem;
+}
+.coupon-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+.coupon-input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-right: 0.5rem;
+}
+.coupon-button {
+  background-color: #457b9d;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.coupon-button:hover {
+  background-color: #1d3557;
+}
+.discount-info {
+  color: #2a9d8f;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+.add-coupon-page {
+  max-width: 600px;
+  margin: 2rem auto;
+  padding: 1rem;
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.add-coupon-page h1 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+.form-group label {
+  display: block;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+.form-group input {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.add-coupon-button {
+  background-color: #2a9d8f;
+  color: #fff;
+  padding: 0.7rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block;
+  margin: 1rem auto 0;
+  transition: background-color 0.3s ease;
+}
+.add-coupon-button:hover {
+  background-color: #21867a;
+}
+.message {
+  text-align: center;
+  font-size: 1rem;
+  color: #2a9d8f;
+  margin-top: 1rem;
 }
 @media screen and (max-width: 700px) {
   .swiper {
@@ -244,11 +410,23 @@ button {
   }
   .collection-area,
   .collection-grid,
-  .admin-panel {
+  .admin-panel,
+  .buypage {
     grid-template-columns: 1fr;
   }
   .additempnl {
     flex-direction: column;
+  }
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+  .cart-item div {
+    margin-left: 0;
+  }
+  .order-button {
+    font-size: 1rem;
+    padding: 0.8rem;
   }
 }
 @media (max-width: 1000px) and (min-width: 700px) {
