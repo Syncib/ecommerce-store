@@ -439,6 +439,40 @@ button {
   margin: 0;
 }
 
+.admin-coupons {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.admin-coupons h1 {
+  margin-bottom: 20px;
+}
+
+.coupons-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.coupons-table th,
+.coupons-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.coupons-table th {
+  background-color: #28a745; /* Green header */
+  color: white;
+}
+
+.coupons-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.coupons-table tr:hover {
+  background-color: #f1f1f1;
+}
+
 
 
 @media screen and (max-width: 700px) {
