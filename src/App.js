@@ -14,7 +14,7 @@ function App() {
   const { user, isLoading } = useUserContext();
 
   if (isLoading) {
-    return <div>Loading...</div>; 
+    return <div>Loading...</div>;
   }
 
   return (
@@ -35,11 +35,7 @@ function App() {
           <Route
             path="/dashboard"
             element={
-              user?.role === "admin" ? (
-                <AdminPanel />
-              ) : (
-                console.log("Redirecting to /", user?.role) || <Navigate to="/" />
-              )
+              user?.role === "admin" ? <AdminPanel /> : <Navigate to="/" />
             }
           />
           <Route path="/cart" element={<Cart />} />

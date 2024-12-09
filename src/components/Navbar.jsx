@@ -1,14 +1,18 @@
 import React, { useState } from "react";
 import { FaShoppingCart, FaSearch, FaUser, FaBars } from "react-icons/fa";
+import { AiOutlineDashboard } from "react-icons/ai";
 import { TbLogout } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../hooks/useUserContext";
 import { useLogout } from "../hooks/useLogout";
 import "./Navbar.css";
 const Navbar = () => {
-  const { user } = useUserContext();
+  const { user, isLoading } = useUserContext();
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useLogout();
+  if (isLoading) {
+    return <nav>Loading...</nav>;
+  }
 
   return (
     <>
@@ -42,6 +46,12 @@ const Navbar = () => {
             <Link to={user ? "/account" : "/login"}>
               <FaUser />
             </Link>
+            {user?.role === "admin" && (
+              <Link to={"/dashboard"}>
+                <AiOutlineDashboard size={"18px"} />
+              </Link>
+            )}
+
             {user && (
               <div
                 role="button"
@@ -49,7 +59,7 @@ const Navbar = () => {
                   logout();
                 }}
               >
-                <TbLogout />
+                <TbLogout size={"18px"} />
               </div>
             )}
           </div>
@@ -86,25 +96,24 @@ const Navbar = () => {
         </a>
         {!user && (
           <>
-          <button
-          className="logbutton"
-          onClick={() => {
-            setIsOpen(false);
-          }}
-        >
-          <Link to="/register">Register</Link>
-        </button>
-        <button
-          className="logbutton"
-          onClick={() => {
-            setIsOpen(false);
-          }}
-        >
-          <Link to="/login">Login</Link>
-        </button>
+            <button
+              className="logbutton"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              <Link to="/register">Register</Link>
+            </button>
+            <button
+              className="logbutton"
+              onClick={() => {
+                setIsOpen(false);
+              }}
+            >
+              <Link to="/login">Login</Link>
+            </button>
           </>
         )}
-        
       </div>
     </>
   );
