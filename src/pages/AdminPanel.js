@@ -3,6 +3,7 @@ import AddItems from "./AddItems";
 import CollectionItem from "../components/CollectionItem";
 import skeimg from "../assets/images/skeleton/image-1@2x.jpg";
 import AdminOrders from "./AdminOrders";
+import AdminCoupons from "./AdminCoupons";
 
 const AdminPanel = () => {
   const [action, setAction] = useState("additems");
@@ -46,7 +47,7 @@ const AdminPanel = () => {
           <button onClick={() => setAction("additems")}>Add New Item</button>
           <button>Add New Coupon</button>
           <button onClick={() => setAction("vieworders")}>View Orders</button>
-          <button>View Coupons</button>
+          <button onClick={() => setAction("viewcoupons")}>View Coupons</button>
           <button>Modify Stock</button>
         </div>
       </div>
@@ -68,6 +69,7 @@ const AdminPanel = () => {
           </div>
         )}
         {action === "vieworders" && <AdminOrders />}
+        {action === "viewcoupons" && <AdminCoupons />}
       </div>
     </div>
   );
