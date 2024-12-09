@@ -53,6 +53,7 @@ const AdminCoupons = () => {
             <tr>
               <th>Coupon Code</th>
               <th>Discount (%)</th>
+              <th>Expiry Date</th>
             </tr>
           </thead>
           <tbody>
@@ -60,6 +61,7 @@ const AdminCoupons = () => {
               <tr key={coupon._id}>
                 <td>{coupon.code}</td>
                 <td>{coupon.discount}</td>
+                <td>{new Date(coupon.expiry).toLocaleDateString()}</td>
               </tr>
             ))}
           </tbody>
