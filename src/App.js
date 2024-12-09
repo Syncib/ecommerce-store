@@ -11,7 +11,12 @@ import Cart from "./pages/Cart";
 import "./App.css";
 
 function App() {
-  const { user } = useUserContext();
+  const { user, isLoading } = useUserContext();
+
+  if (isLoading) {
+    return <div>Loading...</div>; 
+  }
+
   return (
     <div className="main-app">
       <Routes>
@@ -19,21 +24,21 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route
             path="/register"
-            element={user ? <Navigate to={"/"} /> : <Register />}
+            element={user ? <Navigate to="/" /> : <Register />}
           />
           <Route
             path="/login"
-            element={user ? <Navigate to={"/"} /> : <Login />}
+            element={user ? <Navigate to="/" /> : <Login />}
           />
           <Route path="/collections" element={<Collection />} />
           <Route path="/buy/:id" element={<BuyPage />} />
           <Route
             path="/dashboard"
             element={
-              user?.role == "admin" ? (
+              user?.role === "admin" ? (
                 <AdminPanel />
               ) : (
-                <Navigate to={"/"} />
+                console.log("Redirecting to /", user?.role) || <Navigate to="/" />
               )
             }
           />
