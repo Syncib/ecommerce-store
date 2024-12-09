@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useUserContext } from "../hooks/useUserContext";
 
 const AdminCoupons = () => {
+  const { user } = useUserContext();
   const [coupons, setCoupons] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -8,14 +10,16 @@ const AdminCoupons = () => {
   useEffect(() => {
     const fetchCoupons = async () => {
       try {
-        const response = await fetch( "https://ecommerce-server-ten-phi.vercel.app/api/admin/viewcoupons",
-            {
-              method: "GET",
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${user.token}`,
-              },
-            });
+        const response = await fetch(
+          "https://ecommerce-server-ten-phi.vercel.app/api/admin/viewcoupons",
+          {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
         if (response.ok) {
           const data = await response.json();
           setCoupons(data.coupons);
@@ -30,7 +34,7 @@ const AdminCoupons = () => {
     };
 
     fetchCoupons();
-  }, []);
+  }, [user.token]);
 
   if (loading) {
     return <div>Loading coupons...</div>;
