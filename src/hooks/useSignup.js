@@ -9,13 +9,16 @@ export const useSignup = () => {
     setIsLoading(true);
     setError(null);
     try {
-      const response = await fetch("https://ecommerce-server-ten-phi.vercel.app/api/user/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, email, password }),
-      });
+      const response = await fetch(
+        "https://ecommerce-server-ten-phi.vercel.app/api/user/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, email, password }),
+        }
+      );
       const data = await response.json();
       if (!response.ok) {
         setIsLoading(false);
