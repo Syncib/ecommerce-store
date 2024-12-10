@@ -8,7 +8,7 @@ const BuyPage = () => {
   useEffect(() => {
     const displayItem = async () => {
       const response = await fetch(
-        `https://ecommerce-server-ten-phi.vercel.app/api/products/${id}`
+        `https://ecommerce-server-ten-phi.vercel.app/api/products/single/${id}`
       );
       const data = await response.json();
       setProduct(data);
