@@ -390,7 +390,7 @@ button {
   font-family: Arial, sans-serif;
 }
 
-.admin-coupons h1 {
+.admin-coupons h1, .modify-items h1 {
   margin-bottom: 20px;
 }
 
@@ -518,6 +518,10 @@ button {
   .order-button {
     font-size: 1rem;
     padding: 0.8rem;
+  }
+  .coupon-section{
+    flex-direction: column;
+    gap:1rem
   }
 }
 @media (max-width: 1000px) and (min-width: 700px) {
