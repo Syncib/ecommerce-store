@@ -27,6 +27,7 @@ const Cart = () => {
         if (response.ok) {
           const data = await response.json();
           setCoupons(data);
+          console.log(data)
         } else {
           console.error("Failed to fetch coupons");
         }
@@ -82,7 +83,7 @@ const Cart = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:4000/api/products/placed",
+        "https://ecommerce-server-ten-phi.vercel.app/api/products/placed",
         {
           method: "POST",
           headers: {
