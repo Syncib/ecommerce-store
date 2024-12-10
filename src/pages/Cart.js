@@ -6,7 +6,6 @@ const Cart = () => {
   const { cart, dispatch } = useCollectionContext();
   const { user } = useUserContext();
 
-  // Always call hooks at the top level to avoid conditional issues
   const [coupon, setCoupon] = useState("");
   const [discount, setDiscount] = useState(0);
   const [coupons, setCoupons] = useState([]);
@@ -27,7 +26,6 @@ const Cart = () => {
         if (response.ok) {
           const data = await response.json();
           setCoupons(data);
-          console.log(data)
         } else {
           console.error("Failed to fetch coupons");
         }
@@ -37,7 +35,6 @@ const Cart = () => {
     };
 
     fetchCoupons();
-    
   }, [user]); // Effect depends on user object
 
   const handleRemoveFromCart = (id) => {
@@ -46,16 +43,16 @@ const Cart = () => {
 
   const handleApplyCoupon = () => {
     const matchedCoupon = coupons.find(
-      (c) => c.code.toUpperCase() === coupon.toUpperCase()
+      (c) =>
+        c.code.toUpperCase() === coupon.toUpperCase() &&
+        new Date(c.expiry) >= new Date() // Check if coupon is still valid
     );
 
     if (matchedCoupon) {
-      setDiscount(matchedCoupon.discount);
-      alert(
-        `Coupon applied! You get a ${matchedCoupon.discount * 100}% discount.`
-      );
+      setDiscount(matchedCoupon.discount / 100); // Convert percentage to decimal
+      alert(`Coupon applied! You get a ${matchedCoupon.discount}% discount.`);
     } else {
-      alert("Invalid coupon code. Please try again.");
+      alert("Invalid or expired coupon code. Please try again.");
       setDiscount(0);
     }
   };
@@ -73,12 +70,10 @@ const Cart = () => {
         price: item.price,
         quantity: item.quantity || 1,
       })),
-      total:
-        cart.reduce(
-          (total, item) => total + item.price * (item.quantity || 1),
-          0
-        ) *
-        (1 - discount), // Apply discount
+      total: cart.reduce(
+        (total, item) => total + item.price * (item.quantity || 1),
+        0
+      ) * (1 - discount), // Apply discount
     };
 
     try {
@@ -88,7 +83,7 @@ const Cart = () => {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Authorization: "Bearer " + user.token,
+            Authorization: `Bearer ${user.token}`,
           },
           body: JSON.stringify(orderDetails),
         }
