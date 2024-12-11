@@ -5,6 +5,7 @@ import skeimg from "../assets/images/skeleton/image-1@2x.jpg";
 import AdminOrders from "./AdminOrders";
 import AdminCoupons from "./AdminCoupons";
 import AddCoupon from "./AddCoupons";
+import ModifyItems from "./ModifyItems";
 
 const AdminPanel = () => {
   const [action, setAction] = useState("additems");
@@ -46,10 +47,12 @@ const AdminPanel = () => {
         <h1>Actions</h1>
         <div className="admin-buttons">
           <button onClick={() => setAction("additems")}>Add New Item</button>
-          <button onClick={() => setAction("addcoupons")}>Add New Coupon</button>
+          <button onClick={() => setAction("addcoupons")}>
+            Add New Coupon
+          </button>
           <button onClick={() => setAction("vieworders")}>View Orders</button>
           <button onClick={() => setAction("viewcoupons")}>View Coupons</button>
-          <button>Modify Stock</button>
+          <button onClick={() => setAction("modifystock")}>Modify Stock</button>
         </div>
       </div>
       <div className="admin-display">
@@ -72,6 +75,7 @@ const AdminPanel = () => {
         {action === "vieworders" && <AdminOrders />}
         {action === "viewcoupons" && <AdminCoupons />}
         {action === "addcoupons" && <AddCoupon />}
+        {action === "modifystock" && <ModifyItems />}
       </div>
     </div>
   );
