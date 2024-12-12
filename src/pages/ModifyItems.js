@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useCollectionContext } from "../hooks/useCollectionsContext";
 import { useUserContext } from "../hooks/useUserContext";
 
-const ModifyItems = () => {
+const ModifyItems = ({ setAction, setEditId }) => {
   const { collections, dispatch } = useCollectionContext();
   const { user } = useUserContext();
   const handleDelete = async (id) => {
@@ -46,7 +46,15 @@ const ModifyItems = () => {
             <div className="item-name">{item.name}</div>
             <div className="item-price">{item.price}</div>
             <div className="item-buttons">
-              <button className="item-edit">Edit</button>
+              <button
+                className="item-edit"
+                onClick={() => {
+                  setAction("edititem");
+                  setEditId(item._id);
+                }}
+              >
+                Edit
+              </button>
               <button
                 className="item-delete"
                 onClick={() => {

@@ -6,6 +6,7 @@ import AdminOrders from "./AdminOrders";
 import AdminCoupons from "./AdminCoupons";
 import AddCoupon from "./AddCoupons";
 import ModifyItems from "./ModifyItems";
+import EditItem from "./EditItem";
 
 const AdminPanel = () => {
   const [action, setAction] = useState("additems");
@@ -18,7 +19,7 @@ const AdminPanel = () => {
     stock: 0,
   });
   const [preview, setPreview] = useState(skeimg);
-
+  const [editId, setEditId] = useState("");
   useEffect(() => {
     if (item.image instanceof Blob) {
       const reader = new FileReader();
@@ -75,7 +76,18 @@ const AdminPanel = () => {
         {action === "vieworders" && <AdminOrders />}
         {action === "viewcoupons" && <AdminCoupons />}
         {action === "addcoupons" && <AddCoupon />}
-        {action === "modifystock" && <ModifyItems />}
+        {action === "modifystock" && (
+          <ModifyItems setAction={setAction} setEditId={setEditId} />
+        )}
+        {action === "edititem" && (
+          <EditItem
+            editId={editId}
+            item={item}
+            setItem={setItem}
+            resetItem={resetItem}
+            setAction={setAction}
+          />
+        )}
       </div>
     </div>
   );
