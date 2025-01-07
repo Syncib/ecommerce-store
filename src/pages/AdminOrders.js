@@ -55,6 +55,7 @@ const AdminOrders = () => {
               <th>Items</th>
               <th>Total</th>
               <th>Date</th>
+              <th>Address</th>
             </tr>
           </thead>
           <tbody>
@@ -72,6 +73,7 @@ const AdminOrders = () => {
                 </td>
                 <td>${order.total.toFixed(2)}</td>
                 <td>{new Date(order.createdAt).toLocaleString()}</td>
+                <td>{order.address}</td>
               </tr>
             ))}
           </tbody>

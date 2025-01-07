@@ -30,6 +30,54 @@ const Cart = () => {
     });
   };
 
+  const handleOrderSubmit = async () => {
+    if (cart.length === 0) {
+      alert("Your cart is empty!");
+      return;
+    }
+
+    const orderDetails = {
+      items: cart.map((item) => ({
+        id: item.itemid,
+        title: item.title,
+        price: item.price,
+        quantity: item.quantity || 1,
+      })),
+      total:
+        cart.reduce(
+          (total, item) => total + item.price * (item.quantity || 1),
+          0
+        ) *
+        (1 - discount),
+      address: specialInstructions, // Assuming specialInstructions is the address
+    };
+
+    try {
+      const response = await fetch(
+        "https://ecommerce-server-ten-phi.vercel.app/api/products/placed",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: JSON.stringify(orderDetails),
+        }
+      );
+
+      if (response.ok) {
+        dispatch({ type: "CLEAR_CART" });
+        setDiscount(0);
+        setCoupon("");
+        alert("Order placed successfully!");
+      } else {
+        alert("Failed to place order. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error placing order:", error);
+      alert("An error occurred. Please try again.");
+    }
+  };
 
   if (!user) {
     return <p>Please log in to view your cart</p>;
@@ -50,7 +98,6 @@ const Cart = () => {
             {cart.map((item) => (
               <div className="cart-row" key={item.itemid}>
                 <div className="product-info">
-                 
                   <img src={item.image} alt={item.title} />
                   <div>
                     <p>{item.title}</p>
