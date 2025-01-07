@@ -4,10 +4,13 @@ import { AiOutlineDashboard } from "react-icons/ai";
 import { TbLogout } from "react-icons/tb";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../hooks/useUserContext";
+import { useCollectionContext } from "../hooks/useCollectionsContext";
 import { useLogout } from "../hooks/useLogout";
 import "./Navbar.css";
 const Navbar = () => {
   const { user, isLoading } = useUserContext();
+  const { cart } = useCollectionContext();
+
   const [isOpen, setIsOpen] = useState(false);
   const { logout } = useLogout();
   if (isLoading) {
@@ -40,9 +43,12 @@ const Navbar = () => {
               Welcome {user ? user.username : "guest"}
             </div>
             <FaSearch />
-            <Link to={"/cart"}>
-              <FaShoppingCart />
-            </Link>
+            <div className="itemsincart">
+              <Link to={"/cart"}>
+                <FaShoppingCart />
+                <div className={cart.length == 0 && "nocart"}>{cart.length}</div>
+              </Link>
+            </div>
             <Link to={user ? "/account" : "/login"}>
               <FaUser />
             </Link>
