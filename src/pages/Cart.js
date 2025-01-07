@@ -91,20 +91,20 @@ const Cart = () => {
           <div className="cart-table">
             <div className="cart-header">
               <p>Product</p>
-              <p>Price</p>
+              <p className="extra-details">Price</p>
               <p>Quantity</p>
-              <p>Total</p>
+              <p className="extra-details">Total</p>
             </div>
             {cart.map((item) => (
               <div className="cart-row" key={item.itemid}>
                 <div className="product-info">
                   <img src={item.image} alt={item.title} />
-                  <div>
+                  <div className="extra-details">
                     <p>{item.title}</p>
                     <p>{item.description}</p>
                   </div>
                 </div>
-                <p>${item.price.toFixed(2)}</p>
+                <p className="extra-details">${item.price.toFixed(2)}</p>
                 <div className="quantity-controls">
                   <span>{item.quantity || 1}</span>
                   <button onClick={() => handleQuantityChange(item.itemid, -1)}>
@@ -120,7 +120,7 @@ const Cart = () => {
                     X
                   </button>
                 </div>
-                <p>${(item.price * (item.quantity || 1)).toFixed(2)}</p>
+                <p className="extra-details">${(item.price * (item.quantity || 1)).toFixed(2)}</p>
               </div>
             ))}
           </div>
