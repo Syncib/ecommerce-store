@@ -264,18 +264,17 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:5px;
+  gap: 5px;
 }
 
 .quantity-controls button {
   padding: 0.5rem 1rem;
   background-color: transparent;
-
 }
-.special-instructions{
+.special-instructions {
   margin-top: 1rem;
 }
-.special-instructions h3{
+.special-instructions h3 {
   text-align: start;
 }
 .special-instructions textarea {
@@ -526,13 +525,13 @@ button {
     flex-direction: column;
     gap: 1rem;
   }
-  .extra-details{
+  .extra-details {
     display: none;
   }
   .cart-header,
-.cart-row{
-  grid-template-columns: 1fr 1fr;
-}
+  .cart-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 @media (max-width: 1000px) and (min-width: 700px) {
   .collection-grid {
