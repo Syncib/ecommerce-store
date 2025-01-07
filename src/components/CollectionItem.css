@@ -5,6 +5,9 @@
   border-radius: 12px;
   min-width: 200px;
   min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .collection-card img {
   height: 300px;
@@ -22,7 +25,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap:5px
+  gap:5px;
 }
 .actions button {
   border: none;

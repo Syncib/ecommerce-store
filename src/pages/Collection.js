@@ -56,6 +56,7 @@ const Collection = () => {
             image={item.image}
             title={item.name}
             price={item.price}
+            description={item.description}
             itemid={item._id}
           />
         ))}

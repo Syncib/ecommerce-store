@@ -9,12 +9,43 @@ export const collectionsReducer = (state, action) => {
     case "CREATE_COLLECTIONS":
       return { ...state, collections: [action.payload, ...state.collections] };
     case "ADD_TO_CART":
-      return { ...state, cart: [...state.cart, action.payload] };
+      const existingItem = state.cart.find(
+        (item) => item.itemid === action.payload.itemid
+      );
+
+      if (existingItem) {
+        return {
+          ...state,
+          cart: state.cart.map((item) =>
+            item.itemid === action.payload.itemid
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+        };
+      } else {
+        return {
+          ...state,
+          cart: [...state.cart, { ...action.payload, quantity: 1 }],
+        };
+      }
 
     case "REMOVE_FROM_CART":
       return {
         ...state,
         cart: state.cart.filter((item) => item.itemid !== action.payload),
+      };
+
+    case "UPDATE_CART_ITEM":
+      return {
+        ...state,
+        cart: state.cart.map((item) =>
+          item.itemid === action.payload.itemId
+            ? {
+                ...item,
+                quantity: (item.quantity || 1) + action.payload.change,
+              }
+            : item
+        ),
       };
     case "CLEAR_CART":
       return { ...state, cart: [] };
@@ -25,8 +56,8 @@ export const collectionsReducer = (state, action) => {
 
 export const CollectionsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(collectionsReducer, {
-    collections: null, // Collection of items fetched from the API
-    cart: [], // Initial cart state
+    collections: null, 
+    cart: [], 
   });
 
   return (

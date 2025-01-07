@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useCollectionContext } from "../hooks/useCollectionsContext";
 import "./CollectionItem.css"
-const CollectionItem = ({ image, title, price, itemid }) => {
+const CollectionItem = ({ image, title, price,description, itemid }) => {
   const { dispatch } = useCollectionContext();
   const navigate = useNavigate();
 
   const handleAddToCart = () => {
-    const item = { image, title, price, itemid };
+    const item = { image, title, price, itemid,description };
     dispatch({ type: "ADD_TO_CART", payload: item });
   };
 
