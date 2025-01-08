@@ -141,7 +141,7 @@ const Cart = () => {
             )}
             <p>Total: ${discountedPrice.toFixed(2)}</p>
             <p>Taxes and shipping not included</p>
-            <button onClick={handleOrderSubmit}>
+            <button onClick={handleOrderSubmit} disabled={specialInstructions}>
               Checkout
             </button>
           </div>
